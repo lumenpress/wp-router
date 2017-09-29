@@ -30,7 +30,6 @@ class Router extends \Illuminate\Routing\Router
     {
         try {
             $this->current = $route = $this->routes->match($request);
-
         } catch (\Exception $e) {
             if ($e instanceof NotFoundHttpException) {
                 $routeInfo = $this->container['wp.router']->dispatch($request->getMethod(), $request->path());

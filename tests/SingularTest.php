@@ -12,7 +12,7 @@ class SingularTest extends TestCase
 
         $app = $this->createApplication();
 
-        $app['wp.router']->is('singular', function() {
+        $app['wp.router']->is('singular', function () {
             return response('test singular route');
         });
 
@@ -32,7 +32,7 @@ class SingularTest extends TestCase
     {
         $app = $this->createApplication();
 
-        $app['wp.router']->is('singular', function($post) {
+        $app['wp.router']->is('singular', function ($post) {
             return get_class($post);
         });
 
@@ -54,7 +54,7 @@ class SingularTest extends TestCase
     {
         $app = $this->createApplication();
 
-        $app['wp.router']->is(['singular' => 'page'], function($post) {
+        $app['wp.router']->is(['singular' => 'page'], function ($post) {
             return $post->title;
         });
 
@@ -74,7 +74,7 @@ class SingularTest extends TestCase
     {
         $app = $this->createApplication();
 
-        $app['wp.router']->is(['singular' => 'post'], function($post) {
+        $app['wp.router']->is(['singular' => 'post'], function ($post) {
             return $post->title;
         });
 
@@ -93,11 +93,11 @@ class SingularTest extends TestCase
     {
         $app = $this->createApplication();
 
-        $app['wp.router']->is(['singular' => 'page'], function($post) {
+        $app['wp.router']->is(['singular' => 'page'], function ($post) {
             return 'test singular route 5.1';
         });
 
-        $app['wp.router']->is('singular', function($post) {
+        $app['wp.router']->is('singular', function ($post) {
             return 'test singular route 5.2';
         });
 

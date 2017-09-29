@@ -11,7 +11,7 @@ class GroupCountBasedDispatcher extends GroupCountBased
     {
         $routeInfo = parent::dispatch($httpMethod, $uri);
 
-        if (!app()->bound('wp.router')) {
+        if (! app()->bound('wp.router')) {
             return $routeInfo;
         }
 

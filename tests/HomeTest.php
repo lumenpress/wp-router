@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace LumenPress\Routing\Tests;
 
@@ -10,7 +10,7 @@ class HomeTest extends TestCase
 
         $app = $this->createApplication();
 
-        $app['wp.router']->is('home', function() {
+        $app['wp.router']->is('home', function () {
             return response('Hello World');
         });
 
@@ -24,11 +24,11 @@ class HomeTest extends TestCase
     {
         $app = $this->createApplication();
 
-        $app->router->get('/', function() {
+        $app->router->get('/', function () {
             return response('high priority');
         });
 
-        $app['wp.router']->is('home', function() {
+        $app['wp.router']->is('home', function () {
             return response('low priority');
         });
 
@@ -42,11 +42,11 @@ class HomeTest extends TestCase
     {
         $app = $this->createApplication();
 
-        $app['wp.router']->is('home', function() {
+        $app['wp.router']->is('home', function () {
             return response('low priority');
         });
 
-        $app->router->get('/', function() {
+        $app->router->get('/', function () {
             return response('high priority');
         });
 

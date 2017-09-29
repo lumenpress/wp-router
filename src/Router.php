@@ -4,8 +4,8 @@ namespace LumenPress\Routing;
 
 use Illuminate\Support\Arr;
 use LumenPress\Nimble\Models\Post;
-use LumenPress\Nimble\Models\Taxonomy;
 use LumenPress\Nimble\Models\User;
+use LumenPress\Nimble\Models\Taxonomy;
 
 class Router
 {
@@ -478,18 +478,21 @@ class Router
         if ($obj instanceof \WP_Post) {
             $class = Post::getClassNameByType($obj->post_type, Post::class);
             $post = $class::find($obj->ID);
+
             return ['post' => $post];
         }
         if ($obj instanceof \WP_Term) {
             $class = Taxonomy::getClassNameByType($obj->taxonomy, Taxonomy::class);
             $term = $class::find($obj->term_id);
+
             return ['term' => $term];
         }
         if ($obj instanceof \WP_User) {
             $user = User::find($obj->ID);
+
             return ['user' => $user];
         }
+
         return [];
     }
 }
-

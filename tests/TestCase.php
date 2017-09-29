@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace LumenPress\Routing\Tests;
 
@@ -28,6 +28,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     public function call($app, $uri, $method = 'GET')
     {
         $this->setWpQueryVars($uri = str_replace(home_url(), '', $uri));
+
         return $app->handle(Request::create($uri, $method));
     }
 
